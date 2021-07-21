@@ -4,7 +4,9 @@
   "description": "Pure Javascript Excel Application",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "webpack",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/rin4ik/js-excel/issues"
   },
-  "homepage": "https://github.com/rin4ik/js-excel#readme"
+  "homepage": "https://github.com/rin4ik/js-excel#readme",
+  "private": true,
+  "devDependencies": {
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2"
+  }
 }
