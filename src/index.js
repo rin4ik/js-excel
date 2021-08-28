@@ -1,2 +1,4 @@
+import { Excel } from './components/excel/Excel'
 import './scss/index.scss'
-console.log('Workding')
+const excel = new Excel()
+console.log('Excel', excel)
