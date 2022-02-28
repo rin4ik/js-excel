@@ -33,7 +33,11 @@ class Dom {
         }
         return this
     }
+    on(eventType, callback) {
+        return this.$el.addEventListener(eventType, callback);
+    }
 }
+
 export function $(selector) {
     return new Dom(selector);
 }
