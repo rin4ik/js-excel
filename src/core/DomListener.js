@@ -13,18 +13,18 @@ export class DomListener {
             const method = `on${capitalize(listener)}`
             if (!this[method]) {
                 const name = this.name || ''
-                console.log(this)
                 throw new Error(`
                     Method ${method} is not implemented in ${name}`
                 )
             }
-            this.$root.on(listener, this[method].bind(this))
+            this[method] = this[method].bind(this)
+            this.$root.on(listener, this[method])
         })
     }
     removeDOMListeners() {
         this.listeners.forEach(listener => {
             const method = `on${capitalize(listener)}`
-            this.$root.remove(listener, this[method])
+            this.$root.off(listener, this[method])
         })
     }
 }

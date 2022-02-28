@@ -16,11 +16,10 @@ class Dom {
         return this
     }
     on(eventType, callback) {
-        console.log(eventType)
         this.$el.addEventListener(eventType, callback)
     }
-    remove(eventType, callback) {
-        console.log(eventType)
+    off(eventType, callback) {
+        console.log(eventType, callback)
         this.$el.removeEventListener(eventType, callback)
     }
     append(node) {

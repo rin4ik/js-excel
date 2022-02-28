@@ -4,7 +4,7 @@ export class Table extends ExcelComponent {
     static className = 'excel__table'
     constructor($root) {
         super($root, {
-            name: 'Formula',
+            name: 'Table',
             listeners: ['input', 'click']
         })
     }

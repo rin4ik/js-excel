@@ -5,7 +5,7 @@ export class Toolbar extends ExcelComponent {
     constructor($root) {
         super($root, {
             name: 'Toolbar',
-            listeners: ['input']
+            listeners: ['click']
         })
     }
     toHTML() {
@@ -30,7 +30,7 @@ export class Toolbar extends ExcelComponent {
                 </div>
             `
     }
-    onInput(event) {
-        console.log('oniput table', event.target.textContent.trim(), this.$root)
+    onClick(event) {
+        console.log('onClick button', event.target.textContent.trim())
     }
 }
