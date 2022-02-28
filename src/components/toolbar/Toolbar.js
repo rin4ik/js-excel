@@ -4,7 +4,7 @@ export class Toolbar extends ExcelComponent {
     static className = 'excel__toolbar'
     constructor($root) {
         super($root, {
-            name: 'Formula',
+            name: 'Toolbar',
             listeners: ['input']
         })
     }
@@ -29,5 +29,8 @@ export class Toolbar extends ExcelComponent {
                     <i class="material-icons">format_underline</i>
                 </div>
             `
+    }
+    onInput(event) {
+        console.log('oniput table', event.target.textContent.trim(), this.$root)
     }
 }

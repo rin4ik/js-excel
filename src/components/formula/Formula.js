@@ -15,6 +15,6 @@ export class Formula extends ExcelComponent {
         `
     }
     onInput(event) {
-        console.log('oniput formula', event)
+        console.log('oniput formula', event.target.textContent.trim())
     }
 }
