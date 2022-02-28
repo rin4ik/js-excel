@@ -2,12 +2,12 @@ import { ExcelComponent } from '@/core/ExcelComponent';
 
 export class Header extends ExcelComponent {
     static className = 'excel__header'
-    // constructor($root) {
-    //     super($root, {
-    //         name: 'Formula',
-    //         listeners: ['input']
-    //     })
-    // }
+    constructor($root) {
+        super($root, {
+            name: 'Header',
+            listeners: ['input']
+        })
+    }
     toHTML() {
         return `
             <input type="text" value="New table" class="input">
@@ -20,5 +20,8 @@ export class Header extends ExcelComponent {
                 </div>
             </div>
         `
+    }
+    onInput(event) {
+        console.log('oniput header', event.target.textContent.trim())
     }
 }

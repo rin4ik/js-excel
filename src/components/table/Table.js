@@ -2,12 +2,12 @@ import { ExcelComponent } from '@/core/ExcelComponent';
 
 export class Table extends ExcelComponent {
     static className = 'excel__table'
-    // constructor($root) {
-    //     super($root, {
-    //         name: 'Formula',
-    //         listeners: ['input']
-    //     })
-    // }
+    constructor($root) {
+        super($root, {
+            name: 'Table',
+            listeners: ['input', 'click']
+        })
+    }
     toHTML() {
         return `
             <div class="row">
@@ -36,5 +36,11 @@ export class Table extends ExcelComponent {
                     </div>
                 </div> 
             `
+    }
+    onInput(event) {
+        console.log('oniput table', event.target.textContent.trim(), this.$root)
+    }
+    onClick(event) {
+        console.log('onClick table column', event)
     }
 }
