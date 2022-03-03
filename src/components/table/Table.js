@@ -6,16 +6,10 @@ export class Table extends ExcelComponent {
     constructor($root) {
         super($root, {
             name: 'Table',
-            listeners: ['input', 'click']
+            listeners: []
         })
     }
     toHTML() {
         return createTable()
-    }
-    onInput(event) {
-        console.log('oniput table', event.target.textContent.trim(), this.$root)
-    }
-    onClick(event) {
-        console.log('onClick table column', event)
     }
 }

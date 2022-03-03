@@ -9,13 +9,20 @@ function toCell(cell) {
 }
 function toCol(col) {
     return `
-        <div class="column">${col}</div>
+        <div class="column">
+        ${col}
+        <div class="col-resize"></div>
+        </div>
     `
 }
-function createRow(content, index = '') {
+function createRow(content, index) {
+    const resizer = index ? `<div class="row-resize"></div>` : '';
     return `
         <div class="row">
-            <div class="row-info">${index}</div>
+            <div class="row-info">
+                ${index}
+                ${resizer} 
+            </div>
             <div class="row-data">${content}</div>
         </div>    
     `
@@ -32,7 +39,7 @@ export function createTable(rowsCount = 40) {
         .map(toChar)
         .map(toCol)
         .join('')
-    rows.push(createRow(cols))
+    rows.push(createRow(cols, ''))
     for (let i = 0; i < rowsCount; i++) {
         const cells = new Array(colsCount)
             .fill('')
