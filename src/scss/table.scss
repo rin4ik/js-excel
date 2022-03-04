@@ -2,85 +2,99 @@
 @import "mixins";
 
 .excel__table {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: $header-height + $toolbar-height + $formula-height;
+  overflow-x: auto;
+  padding-bottom: 2px;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    min-height: 20px;
+    height: $row-height;
+  }
+
+  .row-info {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: $info-cell-width;
+    height: 100%;
+    border: 1px solid $border-color;
+    background: #f8f9fa;
+    border-top: none;
+  }
+
+  .row-data {
+        display: flex;
+  }
+
+  .column {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f9fa;
+    min-width: 40px;
+    width: $cell-width;
+    border: 1px solid $border-color;
+    border-top: none;
+    border-left: none;
+    height: 100%;
+  }
+
+  .cell {
+    min-width: 40px;
+    padding: 5px;
+    width: $cell-width;
+    height: 100%;
+    border: 1px solid #e2e3e3;
+    border-top: none;
+    border-left: none;
+    color: #111;
+    white-space: nowrap;
+    outline: none;
+
+
+    &.selected {
+      border: none;
+      outline: 2px solid $primary-color;
+      z-index: 2;
+    }
+  }
+
+  .col-resize, .row-resize {
     position: absolute;
-    left: 0;
-    padding-bottom: 2px;
+    bottom: 0;
     right: 0;
-    top: $header-height + $toolbar-height + $formula-height;
-    overflow-x: auto;
-    .row {
-        display: flex;
-        flex-direction: row;
-        min-height: 20px;
-        height: $row-height;
+    background: $primary-color;
+    opacity: 0;
+    z-index: 1000;
+
+    &:hover {
+      opacity: 1!important;
     }
-    .row-info {
-        display: flex;
-        justify-content: center;
-        position: relative;
-        align-items: center;
-        min-width: $info-cell-width;
-        height: 100%;
-        border: 1px solid $border-color;
-        background: #f8f9fa;
-        border-top: none;
+  }
+
+  .col-resize {
+    top: 0;
+    width: 4px;
+
+    &:hover {
+      cursor: col-resize;
     }
-    .row-data {
-        display: flex; 
-        width: 100%;
+  }
+
+  .row-resize {
+    left: 0;
+    height: 4px;
+
+    &:hover {
+      cursor: row-resize;
     }
-    .column {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-width: 40px;
-        width: $cell-width;
-        border: 1px solid $border-color;
-        border-top: none;
-        border-left: none;
-        background: #f8f9fa;
-        position: relative;
-        height: 100%;
-    }
-    .cell {
-        min-width: 40px;
-        width: $cell-width;
-        padding: 5px;
-        height: 100%;
-        outline: none;
-        border: 1px solid #e2e3e3;
-        border-top: none;
-        border-left: none;
-        color: #111;
-        white-space: nowrap;
-        &.selected {
-            border: none;
-            outline: 2px solid $primary-color;
-            z-index: 2;
-        }
-    }
-    .col-resize, .row-resize {
-        position: absolute;
-        background: $primary-color;
-        opacity: 0;
-        bottom: 0; 
-        right: 0;
-        &:hover {
-            opacity: 1;
-        }
-    }
-    .col-resize {
-        top:0;
-        width: 4px;
-        &:hover { 
-            cursor: col-resize;
-        }
-    }
-    .row-resize { 
-        left: 0; 
-        height: 4px;
-        &:hover { 
-            cursor: row-resize;
-        }
-    }
+  }
+
 }
