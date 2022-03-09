@@ -33,6 +33,9 @@ class Dom {
         }
         return this
     }
+    text(text) {
+        this.$el.textContent = text
+    }
     get data() {
         return this.$el.dataset
     }
