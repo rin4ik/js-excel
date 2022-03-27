@@ -5,6 +5,7 @@ export function resizeHandler($root, event) {
         const $resizer = $(event.target)
         const $parent = $resizer.closest('[data-type="resizable"]')
         const cols = $parent.data.col
+        const type = $resizer.data.resize
         const isColumn = $resizer.data.resize === 'col'
         const coords = $parent.getCoords()
         const sideProp = isColumn ? 'bottom' : 'right'
@@ -45,7 +46,8 @@ export function resizeHandler($root, event) {
             }
             resolve({
                 value,
-                id: isColumn ? $parent.data.col : null
+                type,
+                id: $parent.data[type]
             })
             $resizer.css({
                 opacity: 0,
