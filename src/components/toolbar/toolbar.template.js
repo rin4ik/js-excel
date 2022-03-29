@@ -36,9 +36,9 @@ export function createToolbar(state) {
         },
         {
             icon: 'format_italic',
-            active: state['textDecoration'] === 'italic',
+            active: state['fontStyle'] === 'italic',
             value: {
-                textDecoration: state['textDecoration'] === 'italic'
+                fontStyle: state['fontStyle'] === 'italic'
                     ? 'none' : 'italic'
             }
         },
