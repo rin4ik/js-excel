@@ -19,7 +19,6 @@ class Dom {
         this.$el.addEventListener(eventType, callback)
     }
     off(eventType, callback) {
-        console.log(eventType, callback)
         this.$el.removeEventListener(eventType, callback)
     }
     append(node) {
@@ -33,8 +32,15 @@ class Dom {
         }
         return this
     }
+    attr(name, value) {
+        if (value) {
+            this.$el.setAttribute(name, value)
+            return this
+        }
+        return this.$el.getAttribute(name)
+    }
     text(text) {
-        if (typeof text === 'string') {
+        if (typeof text !== 'undefined') {
             this.$el.textContent = text
             return this
         }
@@ -45,6 +51,12 @@ class Dom {
     }
     get data() {
         return this.$el.dataset
+    }
+    getStyles(styles = []) {
+        return styles.reduce((res, s) => {
+            res[s] = this.$el.style[s]
+            return res
+        }, {})
     }
     closest(selector) {
         return $(this.$el.closest(selector))
