@@ -67,6 +67,7 @@
   }
 
   .col-resize, .row-resize {
+    user-select: none;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -89,6 +90,7 @@
   }
 
   .row-resize {
+    user-select: none;
     left: 0;
     height: 4px;
 
