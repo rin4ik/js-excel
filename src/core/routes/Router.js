@@ -1,0 +1,23 @@
+import {$} from '@core/dom'
+import { ActiveRoute } from './activeRoute'
+export class Router {
+    constructor(selector, routes) {
+        if (!selector) {
+            throw new Error('Selector is not provided in Router')
+        }
+        this.$placeholder = $(selector)
+        this.changePageHandler = this.changePageHandler.bind(this)
+        this.routes = routes
+        this.init()
+    }
+    init() {
+        window.addEventListener('hashchange', this.changePageHandler)
+        this.changePageHandler()
+    }
+    changePageHandler() {
+        this.$placeholder.html('<h1>' + ActiveRoute.path + '</h1>')
+    }
+    destroy() {
+        window.removeEventListener('hashchange', this.changePageHandler)
+    }
+}

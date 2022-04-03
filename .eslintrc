@@ -9,11 +9,12 @@
         // Indent with 4 spaces
         "indent": ["error", 4], 
         "semi": "off",
+        "eol-last": "off",
         "arrow-parens": "off",
         "object-curly-spacing": "off",
         "comma-dangle": "off",
         "require-jsdoc": "off",
-        "operator-linebreak": "off",
+        "operator-linebreak": "off"
     },
     "extends": ["eslint:recommended", "google"]
 }
