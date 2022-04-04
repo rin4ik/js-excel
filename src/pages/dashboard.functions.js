@@ -5,7 +5,7 @@ export function toHTML(key) {
     const id = key.split(':')[1]
     return `
         <li class="db__record"> 
-            <a href="#/excel/${id}">${model.title}</a>
+            <a href="#excel/${id}">${model.title}</a>
             <strong>27.08.2021</strong>
         </li>
     `
