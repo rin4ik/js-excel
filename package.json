@@ -4,7 +4,7 @@
   "description": "Pure Javascript Excel Application",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --env=jsdom",
     "serve": "cross-env NODE_ENV=development  webpack-dev-server --open",
     "build": "cross-env NODE_ENV=production webpack --mode production"
   },
