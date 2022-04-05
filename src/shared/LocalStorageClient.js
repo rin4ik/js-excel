@@ -19,7 +19,7 @@ export class LocalStorageClient {
             const state = storage(this.name)
             setTimeout(() => {
                 resolve(state)
-            }, 1000)
+            }, 500)
         })
     }
 }
